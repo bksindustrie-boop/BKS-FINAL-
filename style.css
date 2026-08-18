@@ -641,7 +641,7 @@ button, input, select, textarea {
   box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
-.apollo-pill-badge {
+.apollo-hero-tag, .apollo-pill-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -650,9 +650,14 @@ button, input, select, textarea {
   background-color: rgba(0, 130, 202, 0.28);
   padding: 0.4rem 1.1rem;
   margin-bottom: 1rem;
+  color: #38BDF8;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-.apollo-pill-dot {
+.apollo-hero-tag-dot, .apollo-pill-dot {
   width: 7px;
   height: 7px;
   border-radius: 50%;
@@ -692,7 +697,7 @@ button, input, select, textarea {
   color: #FFFFFF;
   line-height: 1.12;
   letter-spacing: -0.03em;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.85rem;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
 }
 
@@ -701,12 +706,40 @@ button, input, select, textarea {
   text-shadow: 0 0 25px rgba(56, 189, 248, 0.6);
 }
 
+/* Highly visible glowing typewriter tagline */
+.apollo-hero-typed {
+  font-size: clamp(1.15rem, 2.2vw, 1.55rem);
+  font-weight: 700;
+  color: #F8FAFC !important;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.15rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+}
+
+#typedWord {
+  color: #38BDF8 !important;
+  font-weight: 800;
+  border-right: 2.5px solid #F59E0B;
+  padding-right: 5px;
+  animation: blinkHeroCursor 0.75s infinite;
+  text-shadow: 0 0 20px rgba(56, 189, 248, 0.75);
+}
+
+@keyframes blinkHeroCursor {
+  0%, 100% { border-color: #F59E0B; }
+  50% { border-color: transparent; }
+}
+
 .apollo-hero-desc {
   font-size: 1rem;
-  color: #F8FAFC;
+  color: #E2E8F0;
   line-height: 1.68;
   margin-bottom: 2rem;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
 }
 
 .apollo-hero-btn-group {
@@ -1679,48 +1712,122 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
-   INTERACTIVE PRODUCT CATALOG
+   OUR PRODUCTS INTERACTIVE CATALOG STYLES
    ========================================================================== */
-.apollo-catalog-search {
-  max-width: 45rem;
+.products-control-bar {
+  max-width: 68rem;
   margin: 0 auto 2.5rem;
   display: flex;
-  gap: 0.75rem;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
-.apollo-search-input {
-  flex: 1;
+.products-filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.prod-filter-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
   background-color: var(--bg-white);
+  color: var(--text-slate-600);
   border: 1px solid var(--border-slate-300);
-  border-radius: var(--radius-lg);
-  padding: 0.75rem 1.25rem;
-  font-size: 0.95rem;
-  color: var(--text-navy);
+  border-radius: var(--radius-full);
+  padding: 0.5rem 1rem;
+  font-size: 0.825rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: var(--shadow-sm);
 }
 
-.apollo-search-input:focus {
+.prod-filter-pill i {
+  font-size: 0.85rem;
+  color: var(--apollo-blue);
+  transition: color 0.2s ease;
+}
+
+.prod-filter-pill:hover {
+  background-color: var(--apollo-blue-light);
+  color: var(--apollo-blue);
   border-color: var(--apollo-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 130, 202, 0.15);
 }
 
-.apollo-cat-select {
+.prod-filter-pill.active {
+  background: linear-gradient(135deg, var(--apollo-navy) 0%, var(--apollo-blue) 100%);
+  color: #FFFFFF;
+  border-color: transparent;
+  box-shadow: 0 4px 14px rgba(0, 130, 202, 0.35);
+  transform: translateY(-2px);
+}
+
+.prod-filter-pill.active i {
+  color: #FDBA74;
+}
+
+.products-search-box {
+  position: relative;
+  max-width: 38rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.products-search-icon {
+  position: absolute;
+  left: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-slate-400);
+  font-size: 0.95rem;
+  pointer-events: none;
+}
+
+.products-search-input {
+  width: 100%;
   background-color: var(--bg-white);
-  border: 1px solid var(--border-slate-300);
-  border-radius: var(--radius-lg);
-  padding: 0.75rem 1.25rem;
-  font-size: 0.875rem;
-  font-weight: 600;
+  border: 1.5px solid var(--border-slate-300);
+  border-radius: var(--radius-full);
+  padding: 0.8rem 6.5rem 0.8rem 2.85rem;
+  font-size: 0.9rem;
   color: var(--text-navy);
-  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.25s ease;
 }
 
-.apollo-catalog-grid {
+.products-search-input:focus {
+  outline: none;
+  border-color: var(--apollo-blue);
+  box-shadow: 0 0 0 4px rgba(0, 130, 202, 0.15);
+}
+
+.products-count-badge {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--apollo-navy);
+  color: #FFFFFF;
+  font-size: 0.725rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.02em;
+}
+
+.products-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 }
 
-.apollo-product-card {
+.product-card {
   background-color: var(--bg-white);
   border: 1px solid var(--border-slate-200);
   border-radius: var(--radius-2xl);
@@ -1728,112 +1835,157 @@ button, input, select, textarea {
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
-  transition: var(--transition);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
 }
 
-.apollo-product-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-xl);
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 30px -10px rgba(13, 27, 42, 0.15), 0 0 0 1.5px rgba(0, 130, 202, 0.3);
   border-color: rgba(0, 130, 202, 0.4);
 }
 
-.apollo-product-img {
+.product-img-wrap {
   position: relative;
-  height: 220px;
-  background-color: var(--bg-white);
+  height: 230px;
+  background: radial-gradient(circle at center, #F8FAFC 0%, #EEF2F6 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px;
+  padding: 1.25rem;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-slate-100);
 }
 
-.apollo-product-img img {
-  width: 100%;
-  height: 100%;
+.product-img-wrap img {
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.apollo-product-badge {
+.product-card:hover .product-img-wrap img {
+  transform: scale(1.08);
+}
+
+.product-cat-pill {
   position: absolute;
-  top: 0.75rem;
-  left: 0.75rem;
-  background-color: var(--apollo-blue-light);
-  color: var(--apollo-blue);
-  font-size: 0.7rem;
+  top: 0.85rem;
+  left: 0.85rem;
+  background: rgba(13, 27, 42, 0.85);
+  backdrop-filter: blur(6px);
+  color: #FFFFFF;
+  font-size: 0.68rem;
   font-weight: 700;
-  padding: 0.25rem 0.625rem;
+  padding: 0.25rem 0.65rem;
   border-radius: var(--radius-full);
+  letter-spacing: 0.03em;
+  z-index: 2;
 }
 
-.apollo-product-body {
+.product-body {
   padding: 1.25rem;
   display: flex;
   flex-direction: column;
   flex: 1;
 }
 
-.apollo-product-title {
-  font-size: 1.1rem;
+.product-title {
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--text-navy);
-  margin-bottom: 0.375rem;
+  line-height: 1.3;
+  margin-bottom: 0.4rem;
 }
 
-.apollo-product-desc {
-  font-size: 0.825rem;
+.product-desc {
+  font-size: 0.8rem;
   color: var(--text-slate-500);
   line-height: 1.5;
   margin-bottom: 0.75rem;
 }
 
-.apollo-product-specs {
+.product-specs-list {
   list-style: none;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
-  font-size: 0.78rem;
+  gap: 0.35rem;
+}
+
+.product-specs-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+  font-size: 0.75rem;
   color: var(--text-slate-700);
+  line-height: 1.35;
 }
 
-.apollo-product-specs li {
-  display: flex;
-  align-items: center;
-  gap: 0.375rem;
-}
-
-.apollo-product-specs svg {
+.product-specs-list li i {
   color: var(--apollo-blue);
+  margin-top: 0.15rem;
   flex-shrink: 0;
+  font-size: 0.7rem;
 }
 
-.apollo-product-footer {
+.product-footer {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 0.5rem;
   margin-top: auto;
-  padding-top: 0.75rem;
+  padding-top: 0.85rem;
   border-top: 1px solid var(--border-slate-100);
 }
 
-.apollo-product-price {
-  font-size: 1.1rem;
+.btn-prod-quote {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  background-color: var(--apollo-navy);
+  color: #FFFFFF !important;
+  font-size: 0.75rem;
   font-weight: 700;
-  color: var(--apollo-blue);
-}
-
-.apollo-btn-inquire-sm {
-  background-color: var(--apollo-blue);
-  color: var(--text-white) !important;
-  font-size: 0.78rem;
-  font-weight: 700;
-  padding: 0.375rem 0.875rem;
+  padding: 0.5rem 0.75rem;
   border-radius: var(--radius-md);
-  transition: var(--transition);
+  transition: all 0.2s ease;
+  text-align: center;
 }
 
-.apollo-btn-inquire-sm:hover {
-  background-color: var(--apollo-blue-hover);
+.btn-prod-quote:hover {
+  background-color: var(--apollo-blue);
+  transform: translateY(-1px);
+}
+
+.btn-prod-wa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  background-color: #25D366;
+  color: #FFFFFF !important;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-md);
+  transition: all 0.2s ease;
+}
+
+.btn-prod-wa:hover {
+  background-color: #1EBE5D;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+@media (max-width: 1024px) {
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .products-grid { grid-template-columns: 1fr; }
+  .products-filter-pills { justify-content: flex-start; overflow-x: auto; padding-bottom: 0.5rem; }
+  .prod-filter-pill { white-space: nowrap; }
 }
 
 /* ==========================================================================
