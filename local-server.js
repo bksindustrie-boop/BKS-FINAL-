@@ -27,7 +27,13 @@ const handleRequest = (req, res) => {
     }
 
     let filePath = path.join(PUBLIC_DIR, path.normalize(urlPath));
-    const ext = path.extname(filePath).toLowerCase();
+    let ext = path.extname(filePath).toLowerCase();
+    
+    if (!ext && fs.existsSync(filePath + '.html')) {
+      filePath = filePath + '.html';
+      ext = '.html';
+    }
+
     const contentType = MIME_TYPES[ext] || 'text/html; charset=utf-8';
 
     if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {

@@ -574,21 +574,21 @@ let currentProductsSearch = '';
 // ==========================================================================
 const projectsData = [
   // =========================================================================
-  // 1. TURNKEY KITCHEN INSTALLATIONS (Category: 'turnkey')
+  // 1. COMMERCIAL KITCHEN SETUP INSTALLATIONS (Category: 'setups')
   // =========================================================================
   {
     id: 'proj-01',
     src: 'images/main page/all in one kitchen.jpg',
-    category: 'turnkey',
-    badge: 'Turnkey Installation',
+    category: 'setups',
+    badge: 'Kitchen Installation',
     title: 'Complete Commercial Kitchen Setup & Prep Line',
     location: 'Restaurant Installation Site, Karnataka',
-    desc: 'Integrated turnkey commercial kitchen with heavy SS 304 Chinese wok ranges, preparation work tables, gas manifolds, and stainless exhaust hood canopy systems.'
+    desc: 'Integrated commercial kitchen with heavy SS 304 Chinese wok ranges, preparation work tables, gas manifolds, and stainless exhaust hood canopy systems.'
   },
   {
     id: 'proj-02',
     src: 'images/main page/bks industries.jpg',
-    category: 'turnkey',
+    category: 'setups',
     badge: 'Factory Workshop',
     title: 'BKS Industries Manufacturing & Assembly Floor',
     location: 'BKS Factory Floor, Lakshmidevinagar, Bengaluru',
@@ -597,7 +597,7 @@ const projectsData = [
   {
     id: 'proj-03',
     src: 'images/main page/bks2.jpg',
-    category: 'turnkey',
+    category: 'setups',
     badge: 'Site Execution',
     title: 'Commercial Restaurant Kitchen Lineup & Exhaust System',
     location: 'Hotel Kitchen Project, Bengaluru',
@@ -606,8 +606,8 @@ const projectsData = [
   {
     id: 'proj-04',
     src: 'images/main page/bksi.jpg',
-    category: 'turnkey',
-    badge: 'Turnkey Delivery',
+    category: 'setups',
+    badge: 'Kitchen Delivery',
     title: 'Full Stainless Steel Cooking & Prep Facility',
     location: 'Commercial Dining Setup, South India',
     desc: 'Heavy-gauge SS 304 commercial kitchen equipment line customized for high-volume daily food service.'
@@ -615,7 +615,7 @@ const projectsData = [
   {
     id: 'proj-05',
     src: 'images/main page/bksinsutries.jpg',
-    category: 'turnkey',
+    category: 'setups',
     badge: 'Factory Dispatch',
     title: 'Batch Production & Quality Inspection Line',
     location: 'BKS Manufacturing Workshop, Bengaluru',
@@ -1176,7 +1176,7 @@ function initHeroTypewriter() {
 
   const phrases = [
     "SS Fabricators Bangalore",
-    "Turnkey Commercial Kitchens",
+    "Commercial Kitchen Setups",
     "SS 304 Equipment Fabricators",
     "Hotel & Cloud Kitchen Specialists"
   ];
@@ -1466,7 +1466,7 @@ function initTypewriterApollo() {
 
   const words = [
     "Kitchen Solutions",
-    "Turnkey Hotel Kitchens",
+    "Hotel & Restaurant Kitchens",
     "Mobile Food Trucks",
     "SS Conveyor Systems",
     "Exhaust Ventilation Systems",
@@ -1823,7 +1823,7 @@ function generateAiReply(userText) {
     return `
       📸 <strong>Completed Commercial Kitchen Projects & Installations</strong>:
       <br><br>
-      We have executed 500+ commercial turnkey projects across Karnataka & South India, including restaurant cooking lines, live beverage counters, and heavy SS 304 custom machinery.
+      We have executed 500+ commercial kitchen projects across Karnataka & South India, including restaurant cooking lines, live beverage counters, and heavy SS 304 custom machinery.
       <div class="bksi-msg-actions">
         <a href="#projects" onclick="toggleBksiChat();" class="bksi-msg-btn-quote">📸 View Real Projects Gallery</a>
         <a href="https://wa.me/918123939433?text=Hi%20BKS%20Industries,%20please%20share%20your%20completed%20project%20portfolio." target="_blank" rel="noopener" class="bksi-msg-btn-wa">💬 Request Portfolio on WhatsApp</a>
@@ -1925,14 +1925,14 @@ function generateAiReply(userText) {
     `;
   }
 
-  // 9. Turnkey Project / Hotel / Restaurant / Canteen
-  if (query.includes('turnkey') || query.includes('restaurant') || query.includes('hotel') || query.includes('canteen') || query.includes('hospital') || query.includes('resort') || query.includes('setup')) {
+  // 9. Commercial Kitchen Setup / Hotel / Restaurant / Canteen
+  if (query.includes('restaurant') || query.includes('hotel') || query.includes('canteen') || query.includes('hospital') || query.includes('resort') || query.includes('setup')) {
     return `
-      🏆 <strong>End-to-End Turnkey Commercial Kitchen Setup</strong>:
+      🏆 <strong>End-to-End Commercial Kitchen Equipment Setup</strong>:
       <br><br>
       From architectural 2D/3D CAD kitchen layouts and LPG manifold piping to exhaust ducting, equipment manufacturing, on-site installation, and staff handover. 500+ successful projects delivered across India!
       <div class="bksi-msg-actions">
-        <a href="#services" onclick="toggleBksiChat()" class="bksi-msg-btn-quote">📋 View Turnkey Services</a>
+        <a href="#services" onclick="toggleBksiChat()" class="bksi-msg-btn-quote">📋 View Kitchen Services</a>
       </div>
     `;
   }
