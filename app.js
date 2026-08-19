@@ -574,7 +574,56 @@ let currentProductsSearch = '';
 // ==========================================================================
 const projectsData = [
   // =========================================================================
-  // 1. COMMERCIAL KITCHEN SETUP INSTALLATIONS (Category: 'setups')
+  // 1. RECENT CLIENT INSTALLATIONS & ON-SITE EXECUTION (AUTHENTIC PHOTOS)
+  // =========================================================================
+  {
+    id: 'proj-real-01',
+    src: 'images/real-gallery/real_restaurant_live_cooking_line.jpg',
+    category: 'setups',
+    badge: 'Live Restaurant Kitchen',
+    title: 'Commercial Restaurant Live Cooking Line & Heavy Exhaust Canopy',
+    location: 'Fine-Dining & Multi-Cuisine Restaurant, Bengaluru',
+    desc: 'Fully commissioned commercial kitchen featuring heavy SS 304 gas ranges, flat griddle plates, multi-station prep tables, overhead utility racks, and continuous stainless baffle exhaust hood.'
+  },
+  {
+    id: 'proj-real-02',
+    src: 'images/real-gallery/real_corporate_cafeteria_kitchen.jpg',
+    category: 'setups',
+    badge: 'Corporate Cafeteria',
+    title: 'Modern Corporate Cafeteria Pantry & Induction Cooking Station',
+    location: 'Tech Park Corporate Pantry Setup, Bengaluru',
+    desc: 'Sleek food-grade SS 304 commercial pantry layout with custom wall-mounted exhaust hood canopy, under-counter sliding storage cabinets, work tables, and induction cooking station.'
+  },
+  {
+    id: 'proj-real-03',
+    src: 'images/real-gallery/real_ss_exhaust_hood_sink_station.jpg',
+    category: 'fabrication',
+    badge: 'Ventilation & Washing',
+    title: 'Heavy SS 304 Baffle Exhaust Hood & Deep Pot Wash Sink Station',
+    location: 'Commercial Hospitality Kitchen, Karnataka',
+    desc: 'Custom-engineered stainless steel exhaust hood canopy with high-efficiency grease baffle filters, deep double-bowl sink unit with splashback, and prep work station.'
+  },
+  {
+    id: 'proj-real-04',
+    src: 'images/real-gallery/real_qsr_pantry_service_kitchen.jpg',
+    category: 'setups',
+    badge: 'QSR Setup',
+    title: 'Commercial QSR Kitchen & Food Prep Facility',
+    location: 'Quick Service Restaurant, Bengaluru',
+    desc: 'Space-optimized commercial kitchen layout featuring heavy SS prep counters, commercial refrigeration, and ceiling-integrated ventilation ducting.'
+  },
+  {
+    id: 'proj-real-05',
+    src: 'images/real-gallery/real_bain_marie_live_counter_station.jpg',
+    category: 'counters',
+    badge: 'Live Buffet Counter',
+    title: 'Commercial 4-Well Bain Marie Soup Warmer & Live Service Counter',
+    location: 'Buffet & Live Food Station, Bengaluru',
+    desc: 'Food-grade SS 304 electric Bain Marie soup and gravy warmer with independent temperature controls, digital induction cooking unit, and 2-tier gantry display shelving.'
+  },
+
+  // =========================================================================
+  // 2. COMMERCIAL KITCHEN SETUP INSTALLATIONS (Category: 'setups')
   // =========================================================================
   {
     id: 'proj-01',
