@@ -949,26 +949,44 @@ function handleProductsSearch(query) {
 }
 
 function scrollToProductsCategory(category) {
-  filterProducts(category);
-  const productsSection = document.getElementById('products');
-  if (productsSection) {
-    productsSection.scrollIntoView({ behavior: 'smooth' });
+  if (window.location.pathname.endsWith('products.html') || window.location.pathname.endsWith('/products')) {
+    filterProducts(category);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } else {
+    window.location.href = `products.html?category=${encodeURIComponent(category)}`;
   }
 }
 
 function setInquiryProduct(productName) {
-  const msgEl = document.getElementById('inqMessage');
-  const typeSelect = document.getElementById('inqType');
+  const msgEl = document.getElementById('inqMessage') || document.getElementById('inqProduct');
+  const typeSelect = document.getElementById('inqType') || document.getElementById('inqProjectType');
   if (msgEl) {
     msgEl.value = `I am interested in requesting an official quote for: ${productName}. Please share dimensions, SS gauge options, pricing, and installation timeline.`;
   }
-  if (typeSelect) {
+  if (typeSelect && typeSelect.value !== undefined) {
     typeSelect.value = "Commercial Cooking Ranges & Burners";
   }
   const contactSection = document.getElementById('contact');
   if (contactSection) {
     contactSection.scrollIntoView({ behavior: 'smooth' });
   }
+}
+
+function handleProductInquirySubmit(event) {
+  event.preventDefault();
+  const name = document.getElementById('inqName') ? document.getElementById('inqName').value.trim() : '';
+  const phone = document.getElementById('inqPhone') ? document.getElementById('inqPhone').value.trim() : '';
+  const email = document.getElementById('inqEmail') ? document.getElementById('inqEmail').value.trim() : '';
+  const projectType = document.getElementById('inqProjectType') ? document.getElementById('inqProjectType').value : '';
+  const productSpecs = document.getElementById('inqProduct') ? document.getElementById('inqProduct').value.trim() : '';
+
+  const waMsg = `Hello BKS Industries,%0A%0AI would like a commercial kitchen equipment quotation:%0A• Name: ${encodeURIComponent(name)}%0A• Phone: ${encodeURIComponent(phone)}%0A• Email: ${encodeURIComponent(email)}%0A• Project Type: ${encodeURIComponent(projectType)}%0A• Equipment / Details: ${encodeURIComponent(productSpecs)}`;
+
+  showToast('Quotation request submitted! Opening WhatsApp for instant factory confirmation...', 'success');
+  setTimeout(() => {
+    window.open(`https://wa.me/918123939433?text=${waMsg}`, '_blank');
+    if (event.target && event.target.reset) event.target.reset();
+  }, 1200);
 }
 
 // ==========================================================================
@@ -1514,12 +1532,14 @@ function initTypewriterApollo() {
   if (!target) return;
 
   const words = [
-    "Kitchen Solutions",
     "Hotel & Restaurant Kitchens",
-    "Mobile Food Trucks",
-    "SS Conveyor Systems",
-    "Exhaust Ventilation Systems",
-    "Hospital & Canteen Kitchens"
+    "Cloud Kitchens & Cafes",
+    "Commercial Exhaust Hoods & Ducting",
+    "Heavy-Duty SS 304 Cooking Ranges",
+    "Commercial Refrigeration & Chillers",
+    "Hospital & Canteen Foodservice",
+    "Custom Mobile Food Trucks",
+    "SS Fabrication & Conveyor Lines"
   ];
 
   let wordIdx = 0;
@@ -1738,7 +1758,20 @@ function initAnimatedCounters() {
 
 // Attach Apollo initialization on DOMContentLoaded
 document.addEventListener('DOMContentLoaded', () => {
-  renderProductsCatalog('all', '');
+  // Check URL parameters for products page
+  const urlParams = new URLSearchParams(window.location.search);
+  const catParam = urlParams.get('category');
+  const searchParam = urlParams.get('search');
+  if (catParam) {
+    filterProducts(catParam);
+  } else if (searchParam) {
+    const searchInput = document.getElementById('productsSearchInput');
+    if (searchInput) searchInput.value = searchParam;
+    filterProducts('all');
+  } else {
+    renderProductsCatalog('all', '');
+  }
+
   renderProjectsGallery('all');
   initHeroCarousel();
   initTypewriterApollo();
@@ -1916,7 +1949,7 @@ function generateAiReply(userText) {
       <br><br>
       We manufacture 1, 2, 3, and 4-Burner Indian Cooking Ranges, Chinese Wok Ranges with water faucets, Chapati Puffer Plates, Dosa Bhatties, and Gas/Electric Deck Ovens with heavy cast iron pan supports!
       <div class="bksi-msg-actions">
-        <a href="#products" onclick="scrollToProductsCategory('cooking'); toggleBksiChat();" class="bksi-msg-btn-quote">🔥 View Cooking Ranges</a>
+        <a href="products.html?category=cooking" class="bksi-msg-btn-quote">🔥 View Cooking Ranges</a>
         <a href="https://wa.me/918123939433?text=Hi%20BKS%20Industries,%20I%20need%20details%20for%20Commercial%20Burner%20Ranges." target="_blank" rel="noopener" class="bksi-msg-btn-wa">💬 WhatsApp Inquiry</a>
       </div>
     `;
@@ -1929,7 +1962,7 @@ function generateAiReply(userText) {
       <br><br>
       We design zero-smoke kitchen ventilation with stainless steel baffle grease filters, oil collection troughs, heavy gauge GI/SS ducting, and vibration-free centrifugal exhaust blowers compliant with fire safety norms.
       <div class="bksi-msg-actions">
-        <a href="#products" onclick="scrollToProductsCategory('exhaust'); toggleBksiChat();" class="bksi-msg-btn-quote">💨 Explore Exhaust Hoods</a>
+        <a href="products.html?category=exhaust" class="bksi-msg-btn-quote">💨 Explore Exhaust Hoods</a>
         <a href="https://wa.me/918123939433?text=Hi%20BKS%20Industries,%20I%20need%20details%20for%20Exhaust%20Hood%20Systems." target="_blank" rel="noopener" class="bksi-msg-btn-wa">💬 WhatsApp Quote</a>
       </div>
     `;
@@ -1942,7 +1975,7 @@ function generateAiReply(userText) {
       <br><br>
       Equipped with standard GN container pans (2 to 12 pan configurations), dry/wet heating elements, digital thermostat temperature control, and toughened curved/flat glass sneeze guards for luxury hotel dining and buffets.
       <div class="bksi-msg-actions">
-        <a href="#products" onclick="scrollToProductsCategory('servery'); toggleBksiChat();" class="bksi-msg-btn-quote">🍲 View Bain Marie Showcases</a>
+        <a href="products.html?category=servery" class="bksi-msg-btn-quote">🍲 View Bain Marie Showcases</a>
       </div>
     `;
   }
@@ -1954,7 +1987,7 @@ function generateAiReply(userText) {
       <br><br>
       We manufacture 2-door & 4-door vertical upright chillers/freezers, under-counter worktop refrigerators, GN topping prep tables, and 50L - 1000L food-grade potable SS 304 water tanks.
       <div class="bksi-msg-actions">
-        <a href="#products" onclick="scrollToProductsCategory('refrigeration'); toggleBksiChat();" class="bksi-msg-btn-quote">❄️ Explore Refrigeration</a>
+        <a href="products.html?category=refrigeration" class="bksi-msg-btn-quote">❄️ Explore Refrigeration</a>
       </div>
     `;
   }
@@ -1981,7 +2014,7 @@ function generateAiReply(userText) {
       <br><br>
       From architectural 2D/3D CAD kitchen layouts and LPG manifold piping to exhaust ducting, equipment manufacturing, on-site installation, and staff handover. 500+ successful projects delivered across India!
       <div class="bksi-msg-actions">
-        <a href="#services" onclick="toggleBksiChat()" class="bksi-msg-btn-quote">📋 View Kitchen Services</a>
+        <a href="index.html#services" class="bksi-msg-btn-quote">📋 View Kitchen Services</a>
       </div>
     `;
   }
@@ -2001,8 +2034,8 @@ function generateAiReply(userText) {
     <br><br>
     Would you like our engineering team to send you our complete product catalog or assist you on WhatsApp?
     <div class="bksi-msg-actions">
-      <a href="#products" onclick="scrollToProductsCategory('all'); toggleBksiChat();" class="bksi-msg-btn-quote">📦 Browse Products Catalog</a>
-      <a href="#projects" onclick="toggleBksiChat();" class="bksi-msg-btn-quote">📸 View Real Projects</a>
+      <a href="products.html" class="bksi-msg-btn-quote">📦 Browse Products Catalog</a>
+      <a href="index.html#projects" class="bksi-msg-btn-quote">📸 View Real Projects</a>
     </div>
   `;
 }

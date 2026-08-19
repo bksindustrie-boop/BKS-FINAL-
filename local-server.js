@@ -38,13 +38,23 @@ const handleRequest = (req, res) => {
 
     if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
       const content = fs.readFileSync(filePath);
-      res.writeHead(200, { 'Content-Type': contentType });
+      res.writeHead(200, {
+        'Content-Type': contentType,
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0'
+      });
       res.end(content);
     } else {
       const indexPath = path.join(PUBLIC_DIR, 'index.html');
       if (fs.existsSync(indexPath)) {
         const indexContent = fs.readFileSync(indexPath);
-        res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+        res.writeHead(200, {
+          'Content-Type': 'text/html; charset=utf-8',
+          'Cache-Control': 'no-cache, no-store, must-revalidate',
+          'Pragma': 'no-cache',
+          'Expires': '0'
+        });
         res.end(indexContent);
       } else {
         res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });

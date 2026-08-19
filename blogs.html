@@ -30,7 +30,7 @@
   <link rel="icon" type="image/png" href="images/bksi_official_logo.png">
 
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="style.css?v=cleannoturnkey3.0">
+  <link rel="stylesheet" href="style.css?v=sln_final_4.0">
 </head>
 <body>
   <!-- Scroll Progress Indicator -->
@@ -44,7 +44,7 @@
       <div class="apollo-topbar-left">
         <div class="apollo-topbar-pill">
           <i class="fa-solid fa-fire pill-icon-fire"></i>
-          <span>Bangalore's #1 Commercial Kitchen Manufacturer & SS Fabricator</span>
+          <span>Bangalore's Leading Commercial Kitchen Manufacturer & SS Fabricator</span>
         </div>
         <a href="mailto:Bks-industries@outlook.com" class="apollo-topbar-pill">
           <i class="fa-solid fa-envelope pill-icon-mail"></i>
@@ -93,7 +93,7 @@
         <ul class="apollo-nav">
           <li><a href="index.html" class="apollo-nav-link">Home</a></li>
           <li><a href="index.html#about" class="apollo-nav-link">About Us</a></li>
-          <li><a href="index.html#products" class="apollo-nav-link">Products</a></li>
+          <li><a href="products.html" class="apollo-nav-link">Our Products</a></li>
           <li><a href="index.html#services" class="apollo-nav-link">Services</a></li>
           <li><a href="index.html#projects" class="apollo-nav-link">Projects</a></li>
           <li><a href="blogs.html" class="apollo-nav-link active" style="color: var(--apollo-blue); font-weight: 700;">Blogs</a></li>
@@ -110,90 +110,71 @@
   </header>
 
   <!-- =========================================================================
-       3. BREADCRUMBS & BLOG MAIN SECTION
+       3. CLEAN LIGHT PAGE HEADER & SEARCH TOOLBAR (SLN EQUIPMENTS STYLE)
        ========================================================================= -->
   <main class="max-w-7xl">
-    <!-- Breadcrumbs -->
-    <nav class="bksi-breadcrumbs" aria-label="Breadcrumbs">
-      <ol class="bksi-breadcrumbs-list">
-        <li class="bksi-breadcrumbs-item">
-          <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
-        </li>
-        <li class="bksi-breadcrumbs-separator">/</li>
-        <li class="bksi-breadcrumbs-item">
-          <span class="bksi-breadcrumbs-current">Blogs &amp; Guides</span>
-        </li>
-      </ol>
-    </nav>
-
-    <!-- Header Section -->
+    
+    <!-- Clean Header Section (Matching SLN Equipments Layout) -->
     <section class="blog-header-section">
-      <div class="blog-header-top">
-        <div>
-          <h1 class="blog-main-title">Commercial Kitchen Insights &amp; Guides</h1>
-          <p class="blog-main-subtitle">
-            Industry best practices, equipment buying guides, SS 304 engineering, exhaust CFM formulas, and commercial kitchen planning from Bengaluru's leading manufacturer.
-          </p>
-        </div>
+      <!-- Breadcrumbs -->
+      <nav class="blog-breadcrumbs-nav" aria-label="Breadcrumbs">
+        <ol>
+          <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li class="sep">/</li>
+          <li class="current">Blogs &amp; Guides</li>
+        </ol>
+      </nav>
+
+      <h1 class="blog-page-title">Commercial Kitchen Insights &amp; Guides</h1>
+      <p class="blog-page-subtitle">
+        Industry best practices, equipment buying guides, SS 304 engineering, exhaust CFM formulas, and commercial kitchen planning from Bengaluru's leading manufacturer.
+      </p>
+    </section>
+
+    <!-- Controls & Filter Toolbar (Pristine White Card with Zero Scrollbars) -->
+    <section class="blog-toolbar">
+      <!-- Filter Pills -->
+      <div class="blog-filter-pills" id="categoryFilterPills">
+        <button class="blog-pill-btn active" data-category="all" onclick="filterByCategory('all', this)">
+          <i class="fa-solid fa-layer-group"></i> All Articles
+        </button>
+        <button class="blog-pill-btn" data-category="Kitchen Planning" onclick="filterByCategory('Kitchen Planning', this)">
+          <i class="fa-solid fa-compass-drafting"></i> Kitchen Planning
+        </button>
+        <button class="blog-pill-btn" data-category="SS Fabrication" onclick="filterByCategory('SS Fabrication', this)">
+          <i class="fa-solid fa-shield-halved"></i> SS Fabrication
+        </button>
+        <button class="blog-pill-btn" data-category="Buying Guides" onclick="filterByCategory('Buying Guides', this)">
+          <i class="fa-solid fa-cart-shopping"></i> Buying Guides
+        </button>
+        <button class="blog-pill-btn" data-category="Cloud Kitchens" onclick="filterByCategory('Cloud Kitchens', this)">
+          <i class="fa-solid fa-utensils"></i> Cloud Kitchens
+        </button>
+        <button class="blog-pill-btn" data-category="Case Studies" onclick="filterByCategory('Case Studies', this)">
+          <i class="fa-solid fa-chart-line"></i> Costs &amp; ROI
+        </button>
+        <button class="blog-pill-btn" data-category="Maintenance" onclick="filterByCategory('Maintenance', this)">
+          <i class="fa-solid fa-screwdriver-wrench"></i> Maintenance
+        </button>
       </div>
 
-      <!-- Controls & Filter Toolbar -->
-      <div class="blog-toolbar">
-        <!-- Filter Pills -->
-        <div class="blog-filter-pills" id="categoryFilterPills">
-          <button class="blog-pill-btn active" data-category="all" onclick="filterByCategory('all', this)">
-            <i class="fa-solid fa-layer-group"></i> All Articles
-          </button>
-          <button class="blog-pill-btn" data-category="Kitchen Planning" onclick="filterByCategory('Kitchen Planning', this)">
-            <i class="fa-solid fa-compass-drafting"></i> Kitchen Planning
-          </button>
-          <button class="blog-pill-btn" data-category="SS Fabrication" onclick="filterByCategory('SS Fabrication', this)">
-            <i class="fa-solid fa-shield"></i> SS Fabrication
-          </button>
-          <button class="blog-pill-btn" data-category="Buying Guides" onclick="filterByCategory('Buying Guides', this)">
-            <i class="fa-solid fa-cart-shopping"></i> Buying Guides
-          </button>
-          <button class="blog-pill-btn" data-category="Cloud Kitchens" onclick="filterByCategory('Cloud Kitchens', this)">
-            <i class="fa-solid fa-utensils"></i> Cloud Kitchens
-          </button>
-          <button class="blog-pill-btn" data-category="Case Studies" onclick="filterByCategory('Case Studies', this)">
-            <i class="fa-solid fa-chart-line"></i> Costs &amp; ROI
-          </button>
-          <button class="blog-pill-btn" data-category="Maintenance" onclick="filterByCategory('Maintenance', this)">
-            <i class="fa-solid fa-wrench"></i> Maintenance
-          </button>
+      <!-- Search & Sort Controls -->
+      <div class="blog-search-sort-group">
+        <div class="blog-search-wrapper">
+          <i class="fa-solid fa-magnifying-glass blog-search-icon"></i>
+          <input type="text" id="blogSearchInput" class="blog-search-input" placeholder="Search equipment, checklists, guides..." oninput="handleBlogSearch(this.value)">
         </div>
-
-        <!-- Search & Sort Controls -->
-        <div class="blog-search-sort-group">
-          <div class="blog-search-wrapper">
-            <i class="fa-solid fa-magnifying-glass blog-search-icon"></i>
-            <input type="text" id="blogSearchInput" class="blog-search-input" placeholder="Search equipment, checklists, guides..." oninput="handleBlogSearch(this.value)">
-          </div>
-          <select id="blogSortSelect" class="blog-sort-select" onchange="handleBlogSort(this.value)" aria-label="Sort Blogs">
-            <option value="newest">Newest First</option>
-            <option value="oldest">Oldest First</option>
-            <option value="readtime">Quickest Read</option>
-          </select>
-        </div>
+        <select id="blogSortSelect" class="blog-sort-select" onchange="handleBlogSort(this.value)" aria-label="Sort Blogs">
+          <option value="newest">Newest First</option>
+          <option value="oldest">Oldest First</option>
+          <option value="readtime">Quickest Read</option>
+        </select>
       </div>
     </section>
 
     <!-- =========================================================================
-         4. MASTER FEATURED ARTICLE (TRIDENT HYUNDAI STYLE TOP CARD)
+         4. ALL ARTICLES 3-COLUMN GRID
          ========================================================================= -->
-    <div id="featuredBlogContainer" class="blog-featured-wrapper">
-      <!-- Injected via JavaScript -->
-    </div>
-
-    <!-- =========================================================================
-         5. ALL ARTICLES GRID
-         ========================================================================= -->
-    <div class="blog-grid-section-title">
-      <span>Latest Published Articles</span>
-      <span class="blog-count-badge" id="blogCountBadge">8 Articles</span>
-    </div>
-
     <div class="blog-grid" id="blogGridContainer">
       <!-- Injected via JavaScript -->
     </div>
@@ -204,17 +185,21 @@
     <section class="blog-cta-banner">
       <div class="blog-cta-inner">
         <div>
+          <span class="apollo-pill-badge" style="background: rgba(0, 130, 202, 0.3); border-color: rgba(56, 189, 248, 0.5); color: #38BDF8; margin-bottom: 0.85rem;">
+            <i class="fa-solid fa-drafting-compass"></i> Free Kitchen Engineering Support
+          </span>
           <h2 class="blog-cta-title">Planning a New Restaurant or Cloud Kitchen?</h2>
           <p class="blog-cta-desc">
-            Get expert guidance on 2D/3D CAD kitchen layouts, SS 304 machinery fabrication, gas manifold lines, and exhaust CFM sizing. Speak directly with BKS engineering consultants.
+            Collaborate directly with our senior commercial kitchen project engineers. Get comprehensive 2D/3D CAD layouts, exhaust CFM sizing, and direct factory pricing within 24 hours.
           </p>
         </div>
         <div class="blog-cta-form-box">
           <form onsubmit="handleCtaLeadSubmit(event)">
             <div class="blog-cta-input-group">
-              <input type="tel" class="blog-cta-input" id="ctaLeadPhone" placeholder="Enter Mobile Number" required pattern="[0-9]{10}">
+              <input type="tel" class="blog-cta-input" id="ctaLeadPhone" placeholder="Enter 10-Digit Mobile Number" required pattern="[0-9]{10}">
               <button type="submit" class="blog-cta-submit">
-                <span>Get Free Layout</span>
+                <span>Get Free CAD Layout</span>
+                <i class="fa-solid fa-arrow-right"></i>
               </button>
             </div>
           </form>
@@ -365,7 +350,7 @@
           <h4 class="apollo-footer-title">Quick Links</h4>
           <ul class="apollo-footer-links">
             <li><a href="index.html#about">About Us</a></li>
-            <li><a href="index.html#products">Our Products Catalog</a></li>
+            <li><a href="products.html" style="color: var(--apollo-blue); font-weight: 700;">Our Products Catalog</a></li>
             <li><a href="index.html#services">Our Services & Setup</a></li>
             <li><a href="index.html#projects">Real Project Installations</a></li>
             <li><a href="blogs.html" style="color: var(--apollo-blue); font-weight: 600;">Blogs &amp; Equipment Guides</a></li>
@@ -378,12 +363,12 @@
         <div>
           <h4 class="apollo-footer-title">Our Products</h4>
           <ul class="apollo-footer-links">
-            <li><a href="index.html#products">Commercial Cooking Ranges</a></li>
-            <li><a href="index.html#products">SS Prep Tables &amp; Sinks</a></li>
-            <li><a href="index.html#products">Commercial Refrigerators</a></li>
-            <li><a href="index.html#products">Bain Marie &amp; Hot Cases</a></li>
-            <li><a href="index.html#products">Idli Steamers &amp; Bakery</a></li>
-            <li><a href="index.html#products">Exhaust Hoods &amp; Ducting</a></li>
+            <li><a href="products.html?category=cooking">Commercial Cooking Ranges</a></li>
+            <li><a href="products.html?category=prep">SS Prep Tables &amp; Sinks</a></li>
+            <li><a href="products.html?category=refrigeration">Commercial Refrigerators</a></li>
+            <li><a href="products.html?category=servery">Bain Marie &amp; Hot Cases</a></li>
+            <li><a href="products.html?category=bakery">Idli Steamers &amp; Bakery</a></li>
+            <li><a href="products.html?category=exhaust">Exhaust Hoods &amp; Ducting</a></li>
           </ul>
         </div>
 
@@ -418,7 +403,7 @@
   <div class="toast-container" id="toastContainer"></div>
 
   <!-- JavaScript Modules -->
-  <script src="blogs-data.js?v=hideadmin5.1"></script>
+  <script src="blogs-data.js?v=sln_final_4.0"></script>
   <script>
     // State management
     let currentCategory = 'all';
@@ -502,13 +487,12 @@
       }
 
       if (blogs.length === 0) {
-        if (featuredContainer) featuredContainer.innerHTML = '';
         if (gridContainer) {
           gridContainer.innerHTML = `
-            <div class="blog-empty-state">
-              <i class="fa-solid fa-newspaper blog-empty-icon"></i>
-              <h3 class="blog-empty-title">No Articles Found</h3>
-              <p class="blog-empty-text">No blogs match your filter or search query. Try clearing filters or searching for different keywords.</p>
+            <div class="blog-empty-state" style="grid-column: 1 / -1; text-align: center; padding: 4rem 2rem; background: #ffffff; border-radius: 1rem; border: 1px solid #e2e8f0;">
+              <i class="fa-solid fa-newspaper" style="font-size: 3rem; color: #94a3b8; margin-bottom: 1rem;"></i>
+              <h3 style="font-size: 1.5rem; font-weight: 800; color: #0f172a; margin-bottom: 0.5rem;">No Articles Found</h3>
+              <p style="color: #64748b; margin-bottom: 1.5rem;">No blogs match your filter or search query. Try clearing filters or searching for different keywords.</p>
               <button class="blog-pill-btn active" onclick="resetAllFilters()">Reset All Filters</button>
             </div>
           `;
@@ -516,61 +500,21 @@
         return;
       }
 
-      // If we are on "all" and no search query, show top master featured article
-      let gridBlogs = blogs;
-      if (currentCategory === 'all' && !currentSearchTerm) {
-        const featuredBlog = blogs.find(b => b.featured) || blogs[0];
-        gridBlogs = blogs.filter(b => b.id !== featuredBlog.id);
-
-        if (featuredContainer) {
-          featuredContainer.innerHTML = `
-            <a href="blog-details.html?slug=${featuredBlog.slug}" class="blog-featured-card">
-              <div class="blog-featured-inner">
-                <div class="blog-featured-img-box">
-                  <img src="${featuredBlog.image}" alt="${featuredBlog.title}" class="blog-featured-img" loading="lazy">
-                  <span class="blog-featured-badge"><i class="fa-solid fa-star"></i> Featured Guide</span>
-                </div>
-                <div class="blog-featured-content">
-                  <div class="blog-meta-row">
-                    <span class="blog-cat-tag">${featuredBlog.category}</span>
-                    <span><i class="fa-regular fa-calendar me-1"></i> ${featuredBlog.date}</span>
-                    <span>&bull;</span>
-                    <span><i class="fa-regular fa-clock me-1"></i> ${featuredBlog.readTime}</span>
-                  </div>
-                  <h2 class="blog-featured-title">${featuredBlog.title}</h2>
-                  <p class="blog-featured-excerpt">${featuredBlog.excerpt}</p>
-                  <div class="blog-featured-footer">
-                    <div class="blog-author-meta">
-                      <img src="${featuredBlog.authorAvatar || 'images/bksi_official_logo.png'}" alt="${featuredBlog.author}" class="blog-author-avatar-sm">
-                      <div>
-                        <div class="blog-author-name">${featuredBlog.author}</div>
-                        <div class="blog-author-role-sub">${featuredBlog.authorRole || 'Kitchen Consultant'}</div>
-                      </div>
-                    </div>
-                    <span class="blog-btn-read">Read Article <i class="fa-solid fa-arrow-right"></i></span>
-                  </div>
-                </div>
-              </div>
-            </a>
-          `;
-        }
-      } else {
-        if (featuredContainer) featuredContainer.innerHTML = '';
-      }
-
-      // Render Standard Grid Cards
+      // Render All Articles in Clean 3-Column Grid (SLN Equipments Layout)
       if (gridContainer) {
-        gridContainer.innerHTML = gridBlogs.map(b => `
+        gridContainer.innerHTML = blogs.map(b => `
           <a href="blog-details.html?slug=${b.slug}" class="blog-card">
             <div class="blog-card-img-box">
               <img src="${b.image}" alt="${b.title}" class="blog-card-img" loading="lazy">
+              <span class="blog-card-cat-badge">${b.category}</span>
+              <span class="blog-card-read-badge"><i class="fa-regular fa-clock"></i> ${b.readTime}</span>
+              ${b.featured ? '<span class="blog-featured-corner-badge"><i class="fa-solid fa-star"></i> Featured</span>' : ''}
             </div>
             <div class="blog-card-body">
               <div class="blog-meta-row">
-                <span class="blog-cat-tag">${b.category}</span>
-                <span><i class="fa-regular fa-calendar me-1"></i> ${b.date}</span>
+                <span><i class="fa-regular fa-calendar me-1" style="color: var(--apollo-blue);"></i> ${b.date}</span>
                 <span>&bull;</span>
-                <span><i class="fa-regular fa-clock me-1"></i> ${b.readTime}</span>
+                <span><i class="fa-solid fa-industry me-1" style="color: var(--apollo-blue);"></i> BKS Factory</span>
               </div>
               <h3 class="blog-card-title">${b.title}</h3>
               <p class="blog-card-excerpt">${b.excerpt}</p>
@@ -579,13 +523,36 @@
                   <img src="${b.authorAvatar || 'images/bksi_official_logo.png'}" alt="${b.author}" class="blog-author-avatar-sm">
                   <div>
                     <div class="blog-author-name">${b.author}</div>
+                    <div class="blog-author-role-sub">${b.authorRole || 'Commercial Kitchen Specialist'}</div>
                   </div>
                 </div>
-                <span class="blog-btn-read">Read <i class="fa-solid fa-arrow-right"></i></span>
+                <span class="blog-btn-read">Read Guide <i class="fa-solid fa-arrow-right"></i></span>
               </div>
             </div>
           </a>
         `).join('');
+      }
+    }
+
+    // Quick Keyword Search from Hero Trending Chips
+    function quickFilterByKeyword(keyword) {
+      const searchInput = document.getElementById('blogSearchInput');
+      if (searchInput) {
+        searchInput.value = keyword;
+        searchInput.focus();
+      }
+      currentSearchTerm = keyword;
+      currentCategory = 'all';
+      document.querySelectorAll('.blog-pill-btn').forEach((btn, idx) => {
+        if (idx === 0) btn.classList.add('active');
+        else btn.classList.remove('active');
+      });
+      renderBlogsView();
+
+      // Smooth scroll down to toolbar
+      const toolbar = document.querySelector('.blog-toolbar');
+      if (toolbar) {
+        toolbar.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }
 
@@ -711,9 +678,24 @@
 
     function handleCtaLeadSubmit(e) {
       e.preventDefault();
-      const phone = document.getElementById('ctaLeadPhone').value;
-      showToast(`Thank you! Our kitchen engineer will contact ${phone} with CAD layout details.`, 'success');
+      const phone = document.getElementById('ctaLeadPhone').value.trim();
+      if (!phone) return;
+
+      const targetPhone = "8123939433";
+      const message = `Hello BKS Industries, I am requesting a Free Commercial Kitchen CAD Layout & Quote. My contact number is: ${phone}. Please get in touch with me.`;
+      
+      // Native normal SMS scheme (compatible with Android, iOS and Desktop SMS apps)
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+      const separator = isIOS ? '&' : '?';
+      const smsUrl = `sms:+91${targetPhone}${separator}body=${encodeURIComponent(message)}`;
+
+      showToast(`Thank you! Opening message to send CAD request to +91 81239 39433...`, 'success');
       e.target.reset();
+
+      // Automatically open direct phone normal message (SMS) to 8123939433
+      setTimeout(() => {
+        window.location.href = smsUrl;
+      }, 500);
     }
 
     // Toast notification
