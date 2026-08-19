@@ -676,26 +676,44 @@
       }
     }
 
-    function handleCtaLeadSubmit(e) {
+    async function handleCtaLeadSubmit(e) {
       e.preventDefault();
-      const phone = document.getElementById('ctaLeadPhone').value.trim();
+      const phoneInput = document.getElementById('ctaLeadPhone');
+      const phone = phoneInput ? phoneInput.value.trim() : '';
       if (!phone) return;
 
-      const targetPhone = "8123939433";
-      const message = `Hello BKS Industries, I am requesting a Free Commercial Kitchen CAD Layout & Quote. My contact number is: ${phone}. Please get in touch with me.`;
+      const targetOwnerPhone = "8123939433";
+      const messageText = `Hello BKS Industries, I am requesting a Free Commercial Kitchen CAD Layout & Quote. My Contact Number is: ${phone}. Please contact me.`;
       
-      // Native normal SMS scheme (compatible with Android, iOS and Desktop SMS apps)
+      showToast(`Thank you! Sending your CAD request (${phone}) to +91 81239 39433...`, 'success');
+      if (phoneInput) phoneInput.value = '';
+
+      // 1. Dispatch lead notification directly to owner emails
+      try {
+        fetch('https://formsubmit.co/ajax/Bks-industries@outlook.com', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            lead_type: 'Free Commercial Kitchen CAD Layout Request',
+            customer_phone: phone,
+            destination_phone: targetOwnerPhone,
+            _subject: `🔥 NEW Commercial Kitchen CAD Lead from ${phone} - BKS Industries`,
+            _cc: 'Bksindustries23@gmail.com',
+            _template: 'table'
+          })
+        }).catch(err => console.log('Lead sync:', err));
+      } catch (err) {}
+
+      // 2. Format native SMS link directly to owner phone 8123939433
       const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
       const separator = isIOS ? '&' : '?';
-      const smsUrl = `sms:+91${targetPhone}${separator}body=${encodeURIComponent(message)}`;
+      const encodedMsg = encodeURIComponent(messageText);
+      const smsUri = `sms:+91${targetOwnerPhone}${separator}body=${encodedMsg}`;
 
-      showToast(`Thank you! Opening message to send CAD request to +91 81239 39433...`, 'success');
-      e.target.reset();
-
-      // Automatically open direct phone normal message (SMS) to 8123939433
+      // 3. Automatically open phone SMS to 8123939433
       setTimeout(() => {
-        window.location.href = smsUrl;
-      }, 500);
+        window.location.href = smsUri;
+      }, 400);
     }
 
     // Toast notification
