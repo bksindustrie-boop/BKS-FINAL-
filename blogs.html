@@ -135,12 +135,6 @@
             Industry best practices, equipment buying guides, SS 304 engineering, exhaust CFM formulas, and commercial kitchen planning from Bengaluru's leading manufacturer.
           </p>
         </div>
-        <div class="blog-admin-actions">
-          <button class="blog-btn-add" onclick="openAddBlogModal()" aria-label="Add New Blog">
-            <i class="fa-solid fa-plus"></i>
-            <span>Add / Manage Blogs</span>
-          </button>
-        </div>
       </div>
 
       <!-- Controls & Filter Toolbar -->
@@ -424,7 +418,7 @@
   <div class="toast-container" id="toastContainer"></div>
 
   <!-- JavaScript Modules -->
-  <script src="blogs-data.js?v=seoblog4.1"></script>
+  <script src="blogs-data.js?v=hideadmin5.1"></script>
   <script>
     // State management
     let currentCategory = 'all';
@@ -451,6 +445,19 @@
           scrollProgress.style.width = totalScroll > 0 ? `${(currentScroll / totalScroll) * 100}%` : '0%';
         }
       });
+
+      // Discreet Owner Shortcut: Ctrl + Shift + B or URL param ?admin=true
+      window.addEventListener('keydown', (e) => {
+        if (e.ctrlKey && e.shiftKey && (e.key === 'B' || e.key === 'b')) {
+          e.preventDefault();
+          openAddBlogModal();
+        }
+      });
+
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('admin') === 'true') {
+        setTimeout(() => openAddBlogModal(), 300);
+      }
     });
 
     function getFilteredAndSortedBlogs() {
