@@ -586,24 +586,6 @@ const projectsData = [
     desc: 'Fully commissioned commercial kitchen featuring heavy SS 304 gas ranges, flat griddle plates, multi-station prep tables, overhead utility racks, and continuous stainless baffle exhaust hood.'
   },
   {
-    id: 'proj-real-02',
-    src: 'images/real-gallery/real_corporate_cafeteria_kitchen.jpg',
-    category: 'setups',
-    badge: 'Corporate Cafeteria',
-    title: 'Modern Corporate Cafeteria Pantry & Induction Cooking Station',
-    location: 'Tech Park Corporate Pantry Setup, Bengaluru',
-    desc: 'Sleek food-grade SS 304 commercial pantry layout with custom wall-mounted exhaust hood canopy, under-counter sliding storage cabinets, work tables, and induction cooking station.'
-  },
-  {
-    id: 'proj-real-03',
-    src: 'images/real-gallery/real_ss_exhaust_hood_sink_station.jpg',
-    category: 'fabrication',
-    badge: 'Ventilation & Washing',
-    title: 'Heavy SS 304 Baffle Exhaust Hood & Deep Pot Wash Sink Station',
-    location: 'Commercial Hospitality Kitchen, Karnataka',
-    desc: 'Custom-engineered stainless steel exhaust hood canopy with high-efficiency grease baffle filters, deep double-bowl sink unit with splashback, and prep work station.'
-  },
-  {
     id: 'proj-real-04',
     src: 'images/real-gallery/real_qsr_pantry_service_kitchen.jpg',
     category: 'setups',
@@ -720,24 +702,6 @@ const projectsData = [
     desc: 'Polished 16mm thick mild steel flat dosa griddle paired with high-output gas burner on heavy SS 304 frame.'
   },
   {
-    id: 'proj-11',
-    src: 'images/main page/chapathi bhat.jpg',
-    category: 'cooking',
-    badge: 'Roti / Chapati Unit',
-    title: 'Commercial Chapati Puffer Plate & Bhatti Table',
-    location: 'Industrial Canteen Setup',
-    desc: 'High-volume chapati making table with heavy tawa plate and live flame puffer zone for rapid roti production.'
-  },
-  {
-    id: 'proj-12',
-    src: 'images/main page/romali Roti.jpg',
-    category: 'cooking',
-    badge: 'Specialty Cooking',
-    title: 'Commercial Rumali Roti Convex Dome Bhatti Station',
-    location: 'Mughlai & North Indian Restaurant Site',
-    desc: 'Inverted domed Rumali Roti tawa with heavy circular burner and 360° stainless steel splash surrounds.'
-  },
-  {
     id: 'proj-13',
     src: 'images/main page/romali Roti 1.jpg',
     category: 'cooking',
@@ -750,24 +714,6 @@ const projectsData = [
   // =========================================================================
   // 3. LIVE COUNTERS & BEVERAGE STATIONS (Category: 'counters')
   // =========================================================================
-  {
-    id: 'proj-14',
-    src: 'images/main page/tea coffee Counter.jpg',
-    category: 'counters',
-    badge: 'Beverage Counter',
-    title: 'Stainless Steel Tea & Coffee Live Brewing Counter',
-    location: 'Cafe & Tea Stall Setup, Bengaluru',
-    desc: 'Custom tea and coffee beverage counter with integrated vessel drop-in wells, splashback, and lower storage lockers.'
-  },
-  {
-    id: 'proj-15',
-    src: 'images/main page/tea coffee Counter ev.jpg',
-    category: 'counters',
-    badge: 'Beverage Station',
-    title: 'L-Shaped Commercial Tea & Beverage Service Counter',
-    location: 'Food Court Installation',
-    desc: 'L-shaped commercial stainless steel beverage dispensing station with splash returns and front customer counter.'
-  },
   {
     id: 'proj-16',
     src: 'images/main page/hot case 2.jpg',
@@ -818,24 +764,6 @@ const projectsData = [
     desc: 'Heavy 16G stainless steel 304 potable water storage tank with top inspection lid, level indicator, and drain valves.'
   },
   {
-    id: 'proj-21',
-    src: 'images/main page/ss hand wash sink.jpg',
-    category: 'fabrication',
-    badge: 'Hygiene Wash Station',
-    title: 'Stainless Steel Hand Wash Sink Station with Faucets',
-    location: 'Dining Hall Entrance, Bengaluru',
-    desc: 'Hygienic stainless steel multi-tap continuous handwash trough for school, factory, and college canteens.'
-  },
-  {
-    id: 'proj-22',
-    src: 'images/main page/Folding Table 2.jpg',
-    category: 'fabrication',
-    badge: 'Prep Table',
-    title: 'Heavy-Duty SS 304 Prep Work Table with Undershelf',
-    location: 'BKS Fabrication Workshop',
-    desc: 'Reinforced stainless steel prep work table with double undershelves and heavy tubular support legs.'
-  },
-  {
     id: 'proj-23',
     src: 'images/main page/mesh.jpg',
     category: 'fabrication',
@@ -843,15 +771,6 @@ const projectsData = [
     title: 'Stainless Steel Mesh Wire Grating & Drain Strainers',
     location: 'Drainage & Ventilation System',
     desc: 'Food-grade stainless steel wire mesh grating fabricated for floor drainage channels and exhaust baffle air intakes.'
-  },
-  {
-    id: 'proj-24',
-    src: 'images/main page/ss spoon stand.jpg',
-    category: 'fabrication',
-    badge: 'Cutlery & Utensils',
-    title: 'Commercial Stainless Steel Cutlery & Spoon Stand Holder',
-    location: 'Servery & Dining Equipment',
-    desc: 'Hygienic perforated cylindrical stainless steel cutlery organizer and spoon dispenser rack.'
   }
 ];
 
@@ -2058,3 +1977,63 @@ async function handleUserChatSubmit(e) {
     appendBotMessage(replyHtml);
   }, delay);
 }
+
+// ==========================================================================
+// MOBILE DRAWER NAVIGATION CONTROLLER
+// ==========================================================================
+function toggleMobileMenu() {
+  const drawer = document.getElementById('apolloMobileDrawer');
+  const backdrop = document.getElementById('apolloMobileBackdrop');
+  if (!drawer || !backdrop) return;
+
+  if (drawer.classList.contains('active')) {
+    closeMobileMenu();
+  } else {
+    openMobileMenu();
+  }
+}
+
+function openMobileMenu() {
+  const drawer = document.getElementById('apolloMobileDrawer');
+  const backdrop = document.getElementById('apolloMobileBackdrop');
+  const hamburger = document.getElementById('apolloHamburger');
+  if (!drawer || !backdrop) return;
+
+  drawer.classList.add('active');
+  backdrop.classList.add('active');
+  if (hamburger) hamburger.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeMobileMenu() {
+  const drawer = document.getElementById('apolloMobileDrawer');
+  const backdrop = document.getElementById('apolloMobileBackdrop');
+  const hamburger = document.getElementById('apolloHamburger');
+  if (!drawer || !backdrop) return;
+
+  drawer.classList.remove('active');
+  backdrop.classList.remove('active');
+  if (hamburger) hamburger.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function toggleMobileAccordion(contentId, btn) {
+  const content = document.getElementById(contentId);
+  if (!content) return;
+  const isExpanded = content.classList.contains('expanded');
+  
+  if (isExpanded) {
+    content.classList.remove('expanded');
+    if (btn) btn.classList.remove('expanded');
+  } else {
+    content.classList.add('expanded');
+    if (btn) btn.classList.add('expanded');
+  }
+}
+
+// Global Escape Key to close drawers & modals
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    closeMobileMenu();
+  }
+});

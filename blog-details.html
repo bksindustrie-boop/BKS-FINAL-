@@ -29,7 +29,7 @@
   <link rel="icon" type="image/png" href="images/bksi_official_logo.png">
 
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="style.css?v=3.5">
+  <link rel="stylesheet" href="style.css?v=20260822_mobile">
 </head>
 <body>
   <!-- Scroll Progress Indicator -->
@@ -100,13 +100,118 @@
         </ul>
       </nav>
 
-      <div>
+      <div style="display: flex; align-items: center; gap: 0.65rem;">
         <a href="index.html#contact" class="apollo-btn-enquiry">
           <span>Get Quote</span>
         </a>
+        <button class="apollo-hamburger" id="apolloHamburger" aria-label="Toggle Navigation Menu" onclick="toggleMobileMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </div>
   </header>
+
+  <!-- Mobile Navigation Drawer & Backdrop -->
+  <div class="apollo-mobile-backdrop" id="apolloMobileBackdrop" onclick="closeMobileMenu()"></div>
+  <aside class="apollo-mobile-drawer" id="apolloMobileDrawer" aria-label="Mobile Navigation">
+    <div class="apollo-mobile-drawer-head">
+      <a href="index.html" class="apollo-brand" onclick="closeMobileMenu()">
+        <img src="images/bksi_official_logo.png" alt="BKSI Logo" class="apollo-brand-logo" width="38" height="38">
+        <div class="apollo-brand-text">
+          <span class="apollo-brand-name">B.K.S. <span>INDUSTRIES</span></span>
+          <span class="apollo-brand-sub">Commercial Kitchen Equipments</span>
+        </div>
+      </a>
+      <button class="apollo-mobile-close" id="apolloMobileClose" aria-label="Close navigation" onclick="closeMobileMenu()">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="apollo-mobile-quick-actions">
+      <a href="tel:+918123939433" class="apollo-mobile-action-btn call-btn">
+        <i class="fa-solid fa-phone"></i>
+        <span>Call Factory</span>
+      </a>
+      <a href="https://wa.me/918123939433" target="_blank" rel="noopener" class="apollo-mobile-action-btn wa-btn">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span>WhatsApp</span>
+      </a>
+    </div>
+
+    <ul class="apollo-mobile-nav-list">
+      <li>
+        <a href="index.html" class="apollo-mobile-nav-link" onclick="closeMobileMenu()">
+          <span><i class="fa-solid fa-house nav-icon"></i> Home</span>
+        </a>
+      </li>
+
+      <!-- Products Accordion -->
+      <li class="apollo-mobile-nav-item">
+        <button type="button" class="apollo-mobile-nav-link apollo-mobile-accordion-btn" onclick="toggleMobileAccordion('mobileProductsMenu', this)">
+          <span><i class="fa-solid fa-utensils nav-icon"></i> Our Products</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"></path></svg>
+        </button>
+        <div class="apollo-mobile-accordion-content" id="mobileProductsMenu">
+          <a href="products.html" class="apollo-mobile-sublink" onclick="closeMobileMenu()"><i class="fa-solid fa-layer-group"></i> All 50+ Products Catalog</a>
+          <a href="products.html?category=cooking" class="apollo-mobile-sublink" onclick="closeMobileMenu()"><i class="fa-solid fa-fire"></i> Commercial Cooking Ranges</a>
+          <a href="products.html?category=prep" class="apollo-mobile-sublink" onclick="closeMobileMenu()"><i class="fa-solid fa-sink"></i> SS Prep Tables &amp; Sinks</a>
+          <a href="products.html?category=refrigeration" class="apollo-mobile-sublink" onclick="closeMobileMenu()"><i class="fa-solid fa-snowflake"></i> Commercial Refrigeration</a>
+          <a href="products.html?category=servery" class="apollo-mobile-sublink" onclick="closeMobileMenu()"><i class="fa-solid fa-temperature-arrow-up"></i> Bain Marie &amp; Servery</a>
+          <a href="products.html?category=storage" class="apollo-mobile-sublink" onclick="closeMobileMenu()"><i class="fa-solid fa-boxes-stacked"></i> Storage &amp; Trolleys</a>
+        </div>
+      </li>
+
+      <!-- About Us Accordion -->
+      <li class="apollo-mobile-nav-item">
+        <button type="button" class="apollo-mobile-nav-link apollo-mobile-accordion-btn" onclick="toggleMobileAccordion('mobileAboutMenu', this)">
+          <span><i class="fa-solid fa-building nav-icon"></i> About &amp; Setup</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"></path></svg>
+        </button>
+        <div class="apollo-mobile-accordion-content" id="mobileAboutMenu">
+          <a href="index.html#about" class="apollo-mobile-sublink" onclick="closeMobileMenu()"><i class="fa-solid fa-award"></i> About BKS Industries</a>
+          <a href="index.html#services" class="apollo-mobile-sublink" onclick="closeMobileMenu()"><i class="fa-solid fa-screwdriver-wrench"></i> Turnkey Kitchen Setup</a>
+          <a href="index.html#why-us" class="apollo-mobile-sublink" onclick="closeMobileMenu()"><i class="fa-solid fa-shield-halved"></i> Why Choose Us</a>
+        </div>
+      </li>
+
+      <li>
+        <a href="index.html#services" class="apollo-mobile-nav-link" onclick="closeMobileMenu()">
+          <span><i class="fa-solid fa-gears nav-icon"></i> Services</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="index.html#projects" class="apollo-mobile-nav-link" onclick="closeMobileMenu()">
+          <span><i class="fa-solid fa-camera-retro nav-icon"></i> Projects &amp; Gallery</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="blogs.html" class="apollo-mobile-nav-link active" onclick="closeMobileMenu()" style="color: var(--apollo-blue); font-weight: 800;">
+          <span><i class="fa-solid fa-newspaper nav-icon"></i> Blogs &amp; Guides</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="index.html#contact" class="apollo-mobile-nav-link" onclick="closeMobileMenu()">
+          <span><i class="fa-solid fa-envelope nav-icon"></i> Contact Us</span>
+        </a>
+      </li>
+    </ul>
+
+    <div class="apollo-mobile-drawer-foot">
+      <a href="index.html#contact" class="apollo-mobile-cta-btn" onclick="closeMobileMenu()">
+        <i class="fa-solid fa-paper-plane"></i>
+        <span>Request Instant Quote</span>
+      </a>
+      <div style="font-size: 0.72rem; color: var(--text-slate-500); text-align: center;">
+        <p>BKS Industries &bull; Bengaluru, India</p>
+        <p style="margin-top: 2px;">Direct SS 304 Equipment Manufacturer</p>
+      </div>
+    </div>
+  </aside>
 
   <!-- =========================================================================
        3. BREADCRUMBS & ARTICLE DETAILS SECTION
@@ -587,6 +692,50 @@
         toast.style.transition = 'opacity 0.3s ease';
         setTimeout(() => toast.remove(), 300);
       }, 4000);
+    }
+
+    // Mobile Navigation Drawer
+    function toggleMobileMenu() {
+      const drawer = document.getElementById('apolloMobileDrawer');
+      const backdrop = document.getElementById('apolloMobileBackdrop');
+      if (!drawer || !backdrop) return;
+      if (drawer.classList.contains('active')) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
+    }
+    function openMobileMenu() {
+      const drawer = document.getElementById('apolloMobileDrawer');
+      const backdrop = document.getElementById('apolloMobileBackdrop');
+      const hamburger = document.getElementById('apolloHamburger');
+      if (!drawer || !backdrop) return;
+      drawer.classList.add('active');
+      backdrop.classList.add('active');
+      if (hamburger) hamburger.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMobileMenu() {
+      const drawer = document.getElementById('apolloMobileDrawer');
+      const backdrop = document.getElementById('apolloMobileBackdrop');
+      const hamburger = document.getElementById('apolloHamburger');
+      if (!drawer || !backdrop) return;
+      drawer.classList.remove('active');
+      backdrop.classList.remove('active');
+      if (hamburger) hamburger.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    function toggleMobileAccordion(contentId, btn) {
+      const content = document.getElementById(contentId);
+      if (!content) return;
+      const isExpanded = content.classList.contains('expanded');
+      if (isExpanded) {
+        content.classList.remove('expanded');
+        if (btn) btn.classList.remove('expanded');
+      } else {
+        content.classList.add('expanded');
+        if (btn) btn.classList.add('expanded');
+      }
     }
   </script>
 </body>

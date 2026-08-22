@@ -21,7 +21,7 @@
   <link rel="icon" type="image/png" href="images/bksi_official_logo.png">
 
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="style.css?v=real16x9widescreen7.0">
+  <link rel="stylesheet" href="style.css?v=20260822_mobile">
 </head>
 <body>
   <!-- Scroll Progress Indicator -->
@@ -112,7 +112,7 @@
                     <div class="apollo-mega-card-sub">In-house SS workshop</div>
                   </div>
                 </a>
-                <a href="#industries" class="apollo-mega-card">
+                <a href="#projects" class="apollo-mega-card">
                   <img src="images/real-gallery/real_canteen_dining_tables.jpg" alt="Clients">
                   <div class="apollo-mega-card-overlay">
                     <div class="apollo-mega-card-title">Clients</div>
@@ -182,18 +182,122 @@
           <li><a href="#projects" class="apollo-nav-link">Projects</a></li>
           <li><a href="blogs.html" class="apollo-nav-link">Blogs</a></li>
           <li><a href="#why-us" class="apollo-nav-link">Why Choose Us</a></li>
-          <li><a href="#industries" class="apollo-nav-link">Industries</a></li>
           <li><a href="#contact" class="apollo-nav-link">Contact Us</a></li>
         </ul>
       </nav>
 
-      <div>
+      <div style="display: flex; align-items: center; gap: 0.65rem;">
         <a href="#contact" class="apollo-btn-enquiry">
           <span>Enquiry</span>
         </a>
+        <button class="apollo-hamburger" id="apolloHamburger" aria-label="Toggle Navigation Menu" onclick="toggleMobileMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </div>
   </header>
+
+  <!-- Mobile Navigation Drawer & Backdrop -->
+  <div class="apollo-mobile-backdrop" id="apolloMobileBackdrop" onclick="closeMobileMenu()"></div>
+  <aside class="apollo-mobile-drawer" id="apolloMobileDrawer" aria-label="Mobile Navigation">
+    <div class="apollo-mobile-drawer-head">
+      <a href="index.html" class="apollo-brand" onclick="closeMobileMenu()">
+        <img src="images/bksi_official_logo.png" alt="BKSI Logo" class="apollo-brand-logo" width="38" height="38">
+        <div class="apollo-brand-text">
+          <span class="apollo-brand-name">B.K.S. <span>INDUSTRIES</span></span>
+          <span class="apollo-brand-sub">Commercial Kitchen Equipments</span>
+        </div>
+      </a>
+      <button class="apollo-mobile-close" id="apolloMobileClose" aria-label="Close navigation" onclick="closeMobileMenu()">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="apollo-mobile-quick-actions">
+      <a href="tel:+918123939433" class="apollo-mobile-action-btn call-btn">
+        <i class="fa-solid fa-phone"></i>
+        <span>Call Factory</span>
+      </a>
+      <a href="https://wa.me/918123939433" target="_blank" rel="noopener" class="apollo-mobile-action-btn wa-btn">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span>WhatsApp</span>
+      </a>
+    </div>
+
+    <ul class="apollo-mobile-nav-list">
+      <li>
+        <a href="index.html" class="apollo-mobile-nav-link" onclick="closeMobileMenu()">
+          <span><i class="fa-solid fa-house nav-icon"></i> Home</span>
+        </a>
+      </li>
+
+      <!-- Products Accordion -->
+      <li class="apollo-mobile-nav-item">
+        <button type="button" class="apollo-mobile-nav-link apollo-mobile-accordion-btn" onclick="toggleMobileAccordion('mobileProductsMenu', this)">
+          <span><i class="fa-solid fa-utensils nav-icon"></i> Our Products</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"></path></svg>
+        </button>
+        <div class="apollo-mobile-accordion-content" id="mobileProductsMenu">
+          <a href="products.html" class="apollo-mobile-sublink" onclick="closeMobileMenu()"><i class="fa-solid fa-layer-group"></i> All 50+ Products Catalog</a>
+          <a href="products.html?category=cooking" class="apollo-mobile-sublink" onclick="closeMobileMenu()"><i class="fa-solid fa-fire"></i> Commercial Cooking Ranges</a>
+          <a href="products.html?category=prep" class="apollo-mobile-sublink" onclick="closeMobileMenu()"><i class="fa-solid fa-sink"></i> SS Prep Tables &amp; Sinks</a>
+          <a href="products.html?category=refrigeration" class="apollo-mobile-sublink" onclick="closeMobileMenu()"><i class="fa-solid fa-snowflake"></i> Commercial Refrigeration</a>
+          <a href="products.html?category=servery" class="apollo-mobile-sublink" onclick="closeMobileMenu()"><i class="fa-solid fa-temperature-arrow-up"></i> Bain Marie &amp; Servery</a>
+          <a href="products.html?category=storage" class="apollo-mobile-sublink" onclick="closeMobileMenu()"><i class="fa-solid fa-boxes-stacked"></i> Storage &amp; Trolleys</a>
+        </div>
+      </li>
+
+      <!-- About Us Accordion -->
+      <li class="apollo-mobile-nav-item">
+        <button type="button" class="apollo-mobile-nav-link apollo-mobile-accordion-btn" onclick="toggleMobileAccordion('mobileAboutMenu', this)">
+          <span><i class="fa-solid fa-building nav-icon"></i> About &amp; Setup</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"></path></svg>
+        </button>
+        <div class="apollo-mobile-accordion-content" id="mobileAboutMenu">
+          <a href="#about" class="apollo-mobile-sublink" onclick="closeMobileMenu()"><i class="fa-solid fa-award"></i> About BKS Industries</a>
+          <a href="#services" class="apollo-mobile-sublink" onclick="closeMobileMenu()"><i class="fa-solid fa-screwdriver-wrench"></i> Turnkey Kitchen Setup</a>
+          <a href="#why-us" class="apollo-mobile-sublink" onclick="closeMobileMenu()"><i class="fa-solid fa-shield-halved"></i> Why Choose Us</a>
+        </div>
+      </li>
+
+      <li>
+        <a href="#services" class="apollo-mobile-nav-link" onclick="closeMobileMenu()">
+          <span><i class="fa-solid fa-gears nav-icon"></i> Services</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="#projects" class="apollo-mobile-nav-link" onclick="closeMobileMenu()">
+          <span><i class="fa-solid fa-camera-retro nav-icon"></i> Projects &amp; Gallery</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="blogs.html" class="apollo-mobile-nav-link" onclick="closeMobileMenu()">
+          <span><i class="fa-solid fa-newspaper nav-icon"></i> Blogs &amp; Guides</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="#contact" class="apollo-mobile-nav-link" onclick="closeMobileMenu()">
+          <span><i class="fa-solid fa-envelope nav-icon"></i> Contact Us</span>
+        </a>
+      </li>
+    </ul>
+
+    <div class="apollo-mobile-drawer-foot">
+      <a href="#contact" class="apollo-mobile-cta-btn" onclick="closeMobileMenu()">
+        <i class="fa-solid fa-paper-plane"></i>
+        <span>Request Instant Quote</span>
+      </a>
+      <div style="font-size: 0.72rem; color: var(--text-slate-500); text-align: center;">
+        <p>BKS Industries &bull; Bengaluru, India</p>
+        <p style="margin-top: 2px;">Direct SS 304 Equipment Manufacturer</p>
+      </div>
+    </div>
+  </aside>
 
   <!-- =========================================================================
        3. APOLLO CINEMATIC SPLIT HERO CAROUSEL
@@ -747,70 +851,6 @@
     </div>
   </section>
 
-  <!-- =========================================================================
-       11. INDUSTRIES WE SERVE
-       ========================================================================= -->
-  <section class="apollo-section" id="industries">
-    <div class="max-w-7xl">
-      <div class="apollo-section-head reveal-init reveal-fade-up">
-        <span class="apollo-section-tag">Industries We Serve</span>
-        <h2 class="apollo-section-title">Used Across Every Food Service Industry</h2>
-        <p class="apollo-section-desc">
-          From five-star hotels to mobile food trucks &mdash; BKS Industries equips commercial kitchens of every scale across India.
-        </p>
-      </div>
-
-      <div class="apollo-industries-grid">
-        <div class="apollo-ind-card" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
-          <img src="images/real-gallery/real_bks_commercial_kitchen_cooking_line.jpg" alt="Hotels & Resorts">
-          <div class="apollo-ind-overlay">
-            <p class="apollo-ind-title">Hotels & Resorts</p>
-            <div class="apollo-ind-line"></div>
-          </div>
-        </div>
-
-        <div class="apollo-ind-card" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
-          <img src="images/real-gallery/real_commercial_kitchen_line.jpg" alt="Restaurants & Cafes">
-          <div class="apollo-ind-overlay">
-            <p class="apollo-ind-title">Restaurants & Cafes</p>
-            <div class="apollo-ind-line"></div>
-          </div>
-        </div>
-
-        <div class="apollo-ind-card" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
-          <img src="images/real-gallery/real_food_truck_interior_1.jpg" alt="Custom Mobile Food Trucks">
-          <div class="apollo-ind-overlay">
-            <p class="apollo-ind-title">Custom Mobile Food Trucks</p>
-            <div class="apollo-ind-line"></div>
-          </div>
-        </div>
-
-        <div class="apollo-ind-card" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
-          <img src="images/real-gallery/real_canteen_dining_tables.jpg" alt="Industrial & College Canteens">
-          <div class="apollo-ind-overlay">
-            <p class="apollo-ind-title">Industrial & College Canteens</p>
-            <div class="apollo-ind-line"></div>
-          </div>
-        </div>
-
-        <div class="apollo-ind-card" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
-          <img src="images/real-gallery/real_sweet_bakery_counter.jpg" alt="Bakery & Confectionery">
-          <div class="apollo-ind-overlay">
-            <p class="apollo-ind-title">Bakery & Confectionery</p>
-            <div class="apollo-ind-line"></div>
-          </div>
-        </div>
-
-        <div class="apollo-ind-card" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
-          <img src="images/real-gallery/real_conveyor_system_1.jpg" alt="Cloud Kitchens & Food Processing">
-          <div class="apollo-ind-overlay">
-            <p class="apollo-ind-title">Cloud Kitchens & Food Processing</p>
-            <div class="apollo-ind-line"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- =========================================================================
        9.5. LATEST COMMERCIAL KITCHEN BLOGS & GUIDES PREVIEW
@@ -1094,7 +1134,6 @@
             <li><a href="#projects">Real Project Installations</a></li>
             <li><a href="blogs.html">Blogs &amp; Equipment Guides</a></li>
             <li><a href="#why-us">Why Choose Us</a></li>
-            <li><a href="#industries">Industries We Serve</a></li>
             <li><a href="#contact">Contact &amp; Factory Details</a></li>
           </ul>
         </div>
@@ -1217,6 +1256,6 @@
   </button>
 
   <!-- JavaScript -->
-  <script src="app.js?v=realphotos5.0"></script>
+  <script src="app.js?v=20260822_mobile"></script>
 </body>
 </html>
